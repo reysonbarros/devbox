@@ -10,23 +10,21 @@ public class LastNonRepeatedCharacterFromString {
     public String validation(String str){
 
         List<Integer> repeatNumber = new ArrayList<Integer>();
-        Integer count = 0;
+        int count = 0;
+
+        // Loop em cada caratere da string armazenando a qtd de vezes que se repete
         for(int y=0; y<str.length();y++) {
             count = 0;
+
             for (int i = 0; i < str.length(); i++) {
                 if(str.charAt(y) == str.charAt(i)) {
-                    count += 1;
+                    count++;
                 }
             }
             repeatNumber.add(y,count);
         }
 
-        int position = 0;
-        while(position < repeatNumber.size()){
-            position++;
-        }
-
-        // Exibir resultado
+        // Loop no array que tem a qtd de repeticoes iniciando do ultimo ate o primeiro caractere
         for (int i=repeatNumber.size()-1; i>=0; i--){
             if (repeatNumber.get(i) == 1){
                 return String.valueOf(str.charAt(i));
